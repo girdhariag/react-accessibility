@@ -1,0 +1,136 @@
+.__a11y-audit__ {
+  position: fixed;
+  top: 40px;
+  right: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Droid Sans,
+    Helvetica Neue, sans-serif;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button {
+    border: 0;
+    padding: 0;
+    display: flex;
+    line-height: 1;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  svg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+
+    path {
+      fill: #4066ff;
+    }
+  }
+
+  &.auditing {
+    svg {
+      background-color: #4066ff;
+      border: 2px solid #4066ff;
+
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  .violation-count {
+    position: absolute;
+    left: 60%;
+    top: -8px;
+    display: flex;
+    padding: 3px 8px;
+    background-color: #f02424;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px -2px #ef2522;
+  }
+
+  .violations {
+    position: fixed;
+    overflow: auto;
+    background: #fff;
+    z-index: 2000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: slideUp 0.3s forwards;
+    padding: 6px 0;
+    box-shadow: 0px -6px 11px -4px #0006;
+
+    @keyframes slideUp {
+      0% {
+        height: 0px;
+      }
+
+      100% {
+        height: 300px;
+      }
+    }
+
+    .violation-card {
+      margin: 16px;
+      padding: 10px;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      border-left: 12px solid #4066ff;
+      display: flex;
+
+      * {
+        line-height: 1.5;
+      }
+
+      &.critical {
+        border-left-color: rgb(220, 53, 69);
+      }
+
+      &.serious {
+        border-left-color: rgb(255, 153, 102);
+      }
+
+      &.moderate {
+        border-left-color: rgb(255, 204, 0);
+      }
+
+      &.minor {
+        border-left-color: rgb(23, 162, 184);
+      }
+
+      .violation-index {
+        margin-right: 10px;
+        font-size: 150%;
+        line-height: 1;
+      }
+
+      .violation-header {
+        color: #4d90fe;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .violation-description {
+        .violation-help-url {
+          margin-left: 8px;
+          color: #4d90fe;
+        }
+      }
+
+      .violation-fixes {
+        margin-top: 10px;
+
+        ul {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+}
